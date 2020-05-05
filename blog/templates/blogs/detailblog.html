@@ -1,13 +1,16 @@
+
 <!doctype html>
 <html lang="en">
-{% load staticfiles %}
   <head>
+    {% load staticfiles %}
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
     <meta name="author" content="">
-    <title>Prima mea pagina web!</title>
+    <meta name="generator" content="Jekyll v3.8.6">
+    <title>{{ blog.title }}</title>
 
+    <link rel="canonical" href="https://getbootstrap.com/docs/4.4/examples/album/">
 
     <!-- Bootstrap core CSS -->
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
@@ -48,58 +51,34 @@
                       <a class="nav-link" href="{% static 'Text1.pdf' %}">Resume</a>
                   </li>
                   <li class="nav-item">
-                      <a class="nav-link" href="{% url 'allblogs' %}">Blog</a>
+                      <a class="nav-link active" href="{% url 'allblogs' %}">Blog</a>
                   </li>
               </ul>
           </div>
       </nav>
   </header>
 
-<main role="main">
+  <main role="main">
+      <div class="container">
 
-  <section class="jumbotron text-center">
-    <div class="container">
-      <h1>Hei, sunt Alex!</h1>
-      <p class="lead text-muted">Buna, numele meu este Alex Solomon si imi place sa creez pagini web in Django. Este un mod de a indeplini cerintele clientilor intr-un mod eficient!</p>
-      <p>
-        <a href="mailto:alexandru.solomon@yahoo.com" class="btn btn-primary my-2">Email Me</a>
-      </p>
-        <img src="{% static 'poza2.jpg' %}" height="300"/>
-    </div>
-  </section>
-
-  <div class="album py-5 bg-light">
-    <div class="container">
-
-      <div class="row">
-
-        {% for job in jobs.all %}
-        <div class="col-md-4">
-          <div class="card mb-4 shadow-sm">
-            <img class="bd-placeholder-img card-img-top" src="{{job.image.url}}">
-            <div class="card-body">
-              <p class="card-text">{{ job.summary }}</p>
-            </div>
-          </div>
-        </div>
-        {% endfor %}
+          <h1 class="text-center pt-3">{{ blog.title }}</h1>
+          <p class="text-center"> {{ blog.pub_date_better }} </p>
+          <img class="img-fluid" src="{{blog.image.url}}" />
+          <br />
+          <br />
+          <p>{{ blog.body }}</p>
+          <hr>
 
       </div>
-    </div>
-  </div>
+  </main>
 
-</main>
-
-<footer class="text-muted">
-  <div class="container">
-    <p class="float-right">
-      <a href="#">Back to top</a>
-    </p>
-      <p> CopyRight Alex Solomon {% now "Y"%}</p>
-  </div>
-</footer>
+  <footer class="text-muted">
+      <div class="container">
+          <p class="text-center"> CopyRight Alex Solomon {% now "Y"%}</p>
+      </div>
+  </footer>
   <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
-</body>
+  </body>
 </html>
